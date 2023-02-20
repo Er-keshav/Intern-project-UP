@@ -1,13 +1,15 @@
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function Recipeitem(props) {
   return (
     
-    <>
-      <h1>
+    <ListGroup.Item>
+      
+      <h6 style={{ marginRight: '100px', display: 'inline-block'}}>
         {props.title}
-      </h1>
-      <img src={props.img} alt={props.title +"'s image"} />
-    </>
+      </h6>
+      <img src={props.img} alt={props.title +"'s image"} width="150" height="125" style={{ display: 'inline-block' }}/>
+    </ListGroup.Item>
   );
 }
 

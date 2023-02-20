@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Recipeitem from './recipesitem';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Listing(props){
 
@@ -79,12 +80,15 @@ export default function Listing(props){
 
 return (
     <Container>
+            <ListGroup >
+                
             {data.map((item) => {
                 console.log(item);
                 return (
                     <Recipeitem title={item.title} img={item.image}/>
                 );
             })}
+            </ListGroup>
     </Container>
 );
 
