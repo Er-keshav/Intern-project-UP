@@ -35,5 +35,4 @@ function Ingredientitem(props) {
     </tr>
   );
 }
-
 export default Ingredientitem;
