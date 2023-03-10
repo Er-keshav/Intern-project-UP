@@ -15,13 +15,9 @@ function Search(props) {
     };
   }
 
-  function saveInput(){
-    console.log('Saving data');
-  }
   const processChange = useCallback(
     debounce((e) => props.onChange(e.target.value)) ,[] )
    
-
   return (
           <Container>
           <Form className="d-flex">

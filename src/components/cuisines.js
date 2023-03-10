@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
+
 function Cusine(props) {
     
     const [Cuisines, setCuisines] = useState(
@@ -9,7 +10,7 @@ function Cusine(props) {
         ]
     );
     return (
-        <Form.Select className="select" variant="outline-secondary"
+        <Form.Select className="select" variant="outline-secondary" width= "220%"
                 onChange={(e) => {
                     props.onChange(e.target.value);
                 }} 

@@ -2,18 +2,18 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Search from './search';
-import Cuisine from './filter';
-import Listing from './components/listitems';
+import Cuisine from './cuisines';
+import Listing from './listitems';
 import { useState } from 'react';
 
-function Recipes() {
+function Recipes(props) {
   const [filterParam, setFilterParam] = useState(["All"]);
   const [searchParam, setsearchParam] = useState([""]);
 
   // function filterCuisine(filterParam){
   //    console.log("filterParam");
   // }
-  console.log(filterParam , searchParam);
+  // console.log(filterParam , searchParam);
   return (
     <>
     <Container className="mt-10">
@@ -23,7 +23,7 @@ function Recipes() {
       </Row>
     </Container> 
     <div className="mt-4">
-    <Listing filterParam={filterParam} searchParam={searchParam}/>
+    <Listing filterParam={filterParam} searchParam={searchParam} ChangeId2= {(Id)=> props.ChangeId(Id)}/>
     </div>
     </>
   );

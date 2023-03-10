@@ -1,14 +1,16 @@
 import ListGroup from 'react-bootstrap/ListGroup';
+import {Link} from 'react-router-dom';
 
 function Recipeitem(props) {
+
+  let recipeinfo= [props.id,props.title,props.img];
   return (
     
     <ListGroup.Item>
-      
-      <h6 style={{ marginRight: '100px', display: 'inline-block'}}>
+      <img src={props.img} alt={props.title +"'s image"} width="165" style={{ marginLeft: '3em', display: 'inline-block' }}/>
+      <Link  to= {"/recipes/"+ props.id} onClick= {()=> props.ChangeId3(recipeinfo)} style={{ color: '#232629' , marginLeft: '5rem', display: 'inline-block',fontSize: '120%', fontWeight: '500'}}>
         {props.title}
-      </h6>
-      <img src={props.img} alt={props.title +"'s image"} width="150" height="125" style={{ display: 'inline-block' }}/>
+      </Link>
     </ListGroup.Item>
   );
 }

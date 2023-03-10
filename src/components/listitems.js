@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Recipeitem from './recipesitem';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+
 export default function Listing(props){
 
     const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ export default function Listing(props){
     useEffect(() => {
         if(String(props.searchParam)===""){
         if(String(props.filterParam) ==="All"){
-            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=f95e8d4f1cd34118bd35895c78baf742")
+            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=fe61d221ae224aaaaed2d4c7bf05ede3")
             .then((res) => res.json())
             .then(
                 (result) => {
@@ -28,7 +29,7 @@ export default function Listing(props){
             );
         }
         else{
-            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=f95e8d4f1cd34118bd35895c78baf742&cuisine=" + String(props.filterParam))
+            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=fe61d221ae224aaaaed2d4c7bf05ede3&cuisine=" + String(props.filterParam))
             .then((res) => res.json())
             .then(
                 (result) => {
@@ -45,7 +46,7 @@ export default function Listing(props){
     }
     else{
         if(props.filterParam =="All"){
-            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=f95e8d4f1cd34118bd35895c78baf742&titleMatch=" + String(props.searchParam))
+            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=fe61d221ae224aaaaed2d4c7bf05ede3&titleMatch=" + String(props.searchParam))
             .then((res) => res.json())
             .then(
                 (result) => {
@@ -60,7 +61,7 @@ export default function Listing(props){
             );
         }
         else{
-            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=f95e8d4f1cd34118bd35895c78baf742&cuisine=" + String(props.filterParam) + "&titleMatch="+ String(props.searchParam))
+            fetch("https://api.spoonacular.com/recipes/complexSearch?apiKey=fe61d221ae224aaaaed2d4c7bf05ede3&cuisine=" + String(props.filterParam) + "&titleMatch="+ String(props.searchParam))
             .then((res) => res.json())
             .then(
                 (result) => {
@@ -80,16 +81,19 @@ export default function Listing(props){
 
 return (
     <Container>
-            <ListGroup >
-                
+            <ListGroup style={{ paddingBottom: '4rem' }} >
+            <ListGroup.Item>
+            <h5 style={{ marginLeft: '50px', display: 'inline-block' }}>Image</h5>
+            <h5 style={{ color: '#232629' , marginLeft: '11.5rem', display: 'inline-block', fontWeight: '500'}}>
+                Recipe's Name
+            </h5>
+            </ListGroup.Item>
             {data.map((item) => {
-                console.log(item);
                 return (
-                    <Recipeitem title={item.title} img={item.image}/>
+                    <Recipeitem id= {item.id} title={item.title} img={item.image} ChangeId3= {(Id)=> props.ChangeId2(Id)}/>
                 );
             })}
             </ListGroup>
     </Container>
 );
-
 }
