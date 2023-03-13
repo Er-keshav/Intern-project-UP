@@ -8,7 +8,6 @@ function Ingredientitem(props) {
         ]
     );
     const [currentSystem, setcurrentSystem] = useState("metric");
-    // console.log({currentSystem});
     // console.log('metric'== String(currentSystem));
   return (
     
