@@ -11,10 +11,11 @@ function Ingredients(props) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [Items, setItems] = useState([]);
   const data = Object.values(Items);
+  const Apikey = process.env.REACT_APP_SPOONACULAR_TOKEN; // Set variable (SPOONACULAR_TOKEN) as Api-Key
 
   useEffect(() => {
-        // "https://api.spoonacular.com/recipes/"+ String(props.recipeId[0]) +"/priceBreakdownWidget.json?apiKey=89d0a8cb87a1445889f064b8662024ab"
-    fetch("https://api.spoonacular.com/recipes/"+ String(props.recipeId[0]) +"/priceBreakdownWidget.json?apiKey=fe61d221ae224aaaaed2d4c7bf05ede3")
+        
+    fetch(`https://api.spoonacular.com/recipes/${String(props.recipeId[0])}/priceBreakdownWidget.json?apiKey=${Apikey}`)
     .then((res) => res.json())
     .then(
         (result) => {

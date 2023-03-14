@@ -8,13 +8,13 @@ function Ingredientitem(props) {
         ]
     );
     const [currentSystem, setcurrentSystem] = useState("metric");
-    // console.log('metric'== String(currentSystem));
   return (
     
     <tr>            
      <td> <img src={props.img} alt={props.name +"'s image"} width="165" style={{ marginLeft: '3em', display: 'inline-block' }}/></td>
       <td>{props.name} </td>
-                    <td>
+                    <td>{props.amount.metric.unit===props.amount.us.unit?
+                    <div></div>:
                 <Form.Select className="select" variant="outline-secondary" width= "220%"
                 onChange={(e) => {
                     setcurrentSystem(e.target.value);
@@ -26,7 +26,7 @@ function Ingredientitem(props) {
                         <option value={System}>{System}</option>
                     );
                 })}
-                </Form.Select> </td>
+                </Form.Select> }</td>
                 
             <td>{'metric'=== String(currentSystem)?props.amount.metric.unit===''?'pcs':props.amount.metric.unit:props.amount.us.unit===''?'pcs':props.amount.us.unit}</td>
             <td>{'metric'=== String(currentSystem)?props.amount.metric.value:props.amount.us.value}</td>       
